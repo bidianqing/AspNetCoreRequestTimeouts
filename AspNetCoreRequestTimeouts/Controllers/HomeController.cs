@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreRequestTimeouts.Controllers
@@ -19,6 +20,7 @@ namespace AspNetCoreRequestTimeouts.Controllers
         }
 
         [HttpGet]
+        [RequestTimeout("default")]
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
             await Task.Delay(new TimeSpan(0, 0, 10));
